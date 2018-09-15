@@ -7,5 +7,5 @@ This repository was created for my (currently upcoming) presentiation on Septemb
 
 
 ### Also covered in the session:
-- Mock Debugger: https://code.visualstudio.com/docs/extensions/example-debuggers
+- Mock Debugger: https://github.com/Microsoft/vscode-mock-debug
 - Publishing Extensions: https://code.visualstudio.com/docs/extensions/publish-extension
