@@ -8,4 +8,5 @@ This repository was created for my (currently upcoming) presentiation on Septemb
 
 ### Also covered in the session:
 - Mock Debugger: https://github.com/Microsoft/vscode-mock-debug
-- Publishing Extensions: https://code.visualstudio.com/docs/extensions/publish-extension
+- GitHub API library: https://github.com/github-tools/github
+- Publishing Extensions: https://code.visualstudio.com/docs/extensions/publish
