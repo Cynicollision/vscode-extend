@@ -3,9 +3,10 @@ import * as opn from 'opn';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+    let client = new GitHub();
+    let gitSCM = vscode.scm.createSourceControl('git', "Git");
 
     let disposable = vscode.commands.registerCommand('extension.getGitHubIssues', () => {
-        let client = new GitHub();
 
         client.getIssues('gulpjs', 'gulp').listIssues().then(res => {
 
@@ -16,9 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showQuickPick(descriptions).then(selection => {
 
                 // Find the issue by composite description, then open the issue page in the default browser.
-                let selectedIssue = issues.find(issue => formatIssue(issue) === selection);
-                
+                let selectedIssue = issues.find(issue => formatIssue(issue) === selection);   
                 opn(selectedIssue.html_url);
+
+                // Update the commit message in the SCM view.
+                gitSCM.inputBox.value = `Fixing issue: ${selection}`;
             });
         });
     });
@@ -26,11 +29,11 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
 }
 
-function formatIssue(issue): string {
+function formatIssue(issue :any): string {
     return `#${issue.number} ${issue.title}`;
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() {
-    
+    // Nothing to do...
 }
