@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
     let client = new GitHub();
-    let gitSCM = vscode.scm.createSourceControl('git', "Git");
+    let gitSCM = vscode.scm.createSourceControl('git', 'Git');
 
     let disposable = vscode.commands.registerCommand('extension.getGitHubIssues', () => {
 
